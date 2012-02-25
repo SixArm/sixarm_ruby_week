@@ -1,0 +1,31 @@
+= SixArm.com » Ruby » Week model based on Ruby Date
+
+Author:: Joel Parker Henderson, joel@joelparkerhenderson.com
+Copyright:: Copyright (c) 2006-2012 Joel Parker Henderson
+License:: See LICENSE.txt file
+
+This gem models a week, based on the built-in Ruby Date class.
+
+== Examples
+
+  week = Week.parse('2012-01-02')
+  week.to_s => '2012-01-02'
+
+== Example Enumerable
+
+  week.previous.to_s => '2011-12-26'
+  week.next.to_s => '2012-01-16'
+
+== Example Math
+
+  (week - 3).to_s => '2011-12-12'
+  (week + 3).to_s => '2012-01-24'
+
+== Example Range Helpers
+
+  week.start_date.to_s => '2012-01-02'
+  week.end_date.to_s => '2012-01-09'
+  week.includes?(Date.parse('2012-01-05')) => true                                                                                                                                                                                                                                                                        
+
+
+

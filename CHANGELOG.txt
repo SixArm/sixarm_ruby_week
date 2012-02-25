@@ -1,0 +1,4 @@
+CHANGELOG
+
+2012-02-24 1.1.0 Add methods .now, #includes?, #previous, #next, #start_date, #end_date, and improve examples
+2012-02-23 1.0.0 Updates for gem publishing 

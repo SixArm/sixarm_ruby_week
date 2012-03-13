@@ -8,7 +8,8 @@ require 'sixarm_ruby_week'
 describe Week do
 
   before do
-    DATE ||= Date.parse('2012-01-02')
+    TEXT ||= '2012-01-02'
+    DATE ||= Date.parse(TEXT)
     WEEK ||= Week.new(DATE)
     WEEK_PREV ||= Week.new(DATE-7)
     WEEK_NEXT ||= Week.new(DATE+7)
@@ -26,7 +27,11 @@ describe Week do
 
   describe "#date" do
 
-    it do 
+    it "=> Date" do
+      assert_kind_of(Date, WEEK.date)
+    end
+
+    it "=> the date that initiazed the week" do 
       assert_equal(DATE, WEEK.date)
     end
 
@@ -34,45 +39,49 @@ describe Week do
 
   describe "#to_s" do 
 
-    it do
-      assert_equal('2012-01-02', WEEK.to_s)
+    it "=> String" do
+      assert_kind_of(String, WEEK.to_s)
+    end
+
+    it "=> the week's date formatted as YYYY-MM-DD" do
+      assert_equal(TEXT, WEEK.to_s)
     end
 
   end
 
-  describe "#now" do
+  describe ".now" do
 
-    it do
+    it "=> Week" do
+      assert_kind_of(Week, Week.now)
+    end
+
+    it "=> a week based on today's date" do
       assert_equal(Date.today, Week.now.date)
     end
 
   end
 
-  describe "#parse" do
+  describe ".parse" do
 
-    it do
-      week = Week.parse('2012-01-02')
-      assert_equal(DATE, week.date)
+    it "=> Week" do
+      assert_kind_of(Week, Week.parse(TEXT))
+    end
+
+    it "=> a week based on the date text" do
+      s = '2012-01-02'
+      assert_equal(Date.parse(s), Week.parse(s).date)
     end
 
   end
 
   describe "#hash" do
 
-    it do
-      assert_equal(DATE.hash, WEEK.hash)
+    it "=> Fixnum" do
+      assert_kind_of(Fixnum, WEEK.hash)
     end
 
-  end
-
-  describe "#==" do
-
-    it "weeks created from the same date => true" do
-      assert(WEEK == Week.new(DATE))
-    end
-
-    it "weeks created from different dates => false" do
-      assert(WEEK != Week.new(DATE+1))
+    it "=> the week's date's hash" do
+      assert_equal(WEEK.date.hash, WEEK.hash)
     end
 
   end
@@ -84,7 +93,19 @@ describe Week do
     end
     
     it "weeks created from different dates => false" do
-      assert(!(WEEK.eql? Week.new(DATE+1)))
+      refute(WEEK.eql? Week.new(DATE+1))
+    end
+
+  end
+
+  describe "==" do
+
+    it "weeks created from the same date => true" do
+      assert(WEEK == Week.new(DATE))
+    end
+
+    it "weeks created from different dates => false" do
+      refute(WEEK == Week.new(DATE+1))
     end
 
   end
@@ -105,46 +126,46 @@ describe Week do
 
   end
 
-  describe "#<" do
+  describe "<" do
 
     it "x<y => true" do
       assert(WEEK < WEEK_NEXT)
     end
 
-    it "x=y => false" do
-      assert(!(WEEK < WEEK))
+    it "x==y => false" do
+      refute(WEEK < WEEK)
     end
 
     it "x>y => false" do
-      assert(!(WEEK < WEEK_PREV))
+      refute(WEEK < WEEK_PREV)
     end
 
   end
 
-  describe "#<=" do
+  describe "<=" do
 
     it "x<y => false" do
       assert(WEEK < WEEK_NEXT)
     end
 
-    it "x=y => true" do
+    it "x==y => true" do
       assert(WEEK <= WEEK)
     end
 
     it "x>y => false" do
-      assert(!(WEEK <= WEEK_PREV))
+      refute(WEEK <= WEEK_PREV)
     end
 
   end
 
-  describe "#>" do
+  describe ">" do
       
     it "x<y => false" do
-      assert(!(WEEK > WEEK_NEXT))
+      refute(WEEK > WEEK_NEXT)
     end
 
-    it "x=y => false" do
-      assert(!(WEEK > WEEK))
+    it "x==y => false" do
+      refute(WEEK > WEEK)
     end
 
     it "x>y => true" do
@@ -153,13 +174,13 @@ describe Week do
 
   end
 
-  describe "#>=" do
+  describe ">=" do
 
     it "x<y => false" do
-      assert(!(WEEK >= WEEK_NEXT))
+      refute(WEEK >= WEEK_NEXT)
     end
 
-    it "x=y => true" do
+    it "x==y => true" do
       assert(WEEK >= WEEK)
     end
 
@@ -169,9 +190,13 @@ describe Week do
 
   end
   
-  describe "#+" do
+  describe "+" do
 
     describe "with Numeric type" do
+
+      it "=> Week" do
+        assert_kind_of(Week, WEEK + 0)
+      end
 
       it "+ 0 => this week" do
         assert_equal(WEEK, WEEK + 0)
@@ -206,9 +231,13 @@ describe Week do
 
   end
   
-  describe "#-" do
+  describe "-" do
 
     describe "with Numeric type" do
+
+      it "=> Week" do
+        assert_kind_of(Week, WEEK - 0)
+      end
 
       it "- 0 => this week" do
         assert_equal(WEEK, WEEK - 0)
@@ -233,6 +262,10 @@ describe Week do
 
     describe "with Week type" do
       
+      it "=> Integer" do
+        assert_kind_of(Integer, WEEK - WEEK)
+      end
+
       it "this week - previous week => 1" do
         assert_equal(1, WEEK - WEEK_PREV)
       end
@@ -261,56 +294,88 @@ describe Week do
 
   describe "#previous" do
 
-    it do
-      assert_equal(WEEK_PREV, WEEK.previous)
+    it "=> Week" do
+      assert_kind_of(Week, WEEK.previous)
+    end
+
+    it "=> a week seven days earlier" do
+      assert_equal(Week.new(DATE-7), Week.new(DATE).previous)
     end
 
   end
 
   describe "#next" do
 
-    it do
-      assert_equal(WEEK_NEXT, WEEK.next)
+    it "=> Week" do
+      assert_kind_of(Week, WEEK.next)
+    end
+
+    it "=> a week seven days later" do
+      assert_equal(Week.new(DATE+7), Week.new(DATE).next)
     end
 
   end
 
   describe "#start_date" do
 
-    it do
+    it "=> Date" do
+      assert_kind_of(Date, WEEK.start_date)
+    end
+
+    it "=> the initialzation date" do
       assert_equal(DATE, WEEK.start_date)
     end
     
   end
 
   describe "#end_date" do
-    
-    it do
+
+    it "=> Date" do
+      assert_kind_of(Date, WEEK.end_date)
+    end
+
+    it "=> six days after the initialization date" do
       assert_equal(DATE + 6, WEEK.end_date)
     end
 
   end
 
-  describe "#includes?" do
+  describe "#date_range" do
+
+    it "=> Range" do
+      assert_kind_of(Range, WEEK.date_range)
+    end
+
+    it "=> Range first is the start date" do
+      assert_equal(WEEK.start_date, WEEK.date_range.first)
+    end
+
+    it "=> Range last is the end date" do
+      assert_equal(WEEK.end_date, WEEK.date_range.last)
+    end
+
+  end
+
+  describe "#include?" do
 
     it "all days in this week => true" do
-      assert(WEEK.includes? DATE+0)
-      assert(WEEK.includes? DATE+1)
-      assert(WEEK.includes? DATE+2)
-      assert(WEEK.includes? DATE+3)
-      assert(WEEK.includes? DATE+4)
-      assert(WEEK.includes? DATE+5)
-      assert(WEEK.includes? DATE+6)
+      assert_includes(WEEK, DATE+0)
+      assert_includes(WEEK, DATE+1)
+      assert_includes(WEEK, DATE+2)
+      assert_includes(WEEK, DATE+3)
+      assert_includes(WEEK, DATE+4)
+      assert_includes(WEEK, DATE+5)
+      assert_includes(WEEK, DATE+6)
     end
 
     it "any day before this week => false" do
-      assert(!(WEEK.includes? DATE-1))
-      assert(!(WEEK.includes? DATE-999))
+      refute_includes(WEEK, DATE-1)
+      refute_includes(WEEK, DATE-999)
     end
 
     it "any day after this week => false" do
-      assert(!(WEEK.includes? DATE+7))
-      assert(!(WEEK.includes? DATE+999))
+      refute_includes(WEEK, DATE+7)
+      refute_includes(WEEK, DATE+999)
     end
 
   end

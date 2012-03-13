@@ -8,24 +8,39 @@ This gem models a week, based on the built-in Ruby Date class.
 
 == Examples
 
-  week = Week.parse('2012-01-02')
-  week.to_s => '2012-01-02'
 
-== Example Enumerable
+Initialize:
+    
+    date = Date.parse('2012-01-02')
+    week = Week.new(date)
+    week.to_s => '2012-01-02'
 
-  week.previous.to_s => '2011-12-26'
-  week.next.to_s => '2012-01-16'
+Parse:
 
-== Example Math
+    week = Week.parse('2012-01-02')
+    week => 2012-01-02
 
-  (week - 3).to_s => '2011-12-12'
-  (week + 3).to_s => '2012-01-24'
+Enumerable:
 
-== Example Range Helpers
+    week.previous => 2011-12-26
+    week.next => 2012-01-16
 
-  week.start_date.to_s => '2012-01-02'
-  week.end_date.to_s => '2012-01-09'
-  week.includes?(Date.parse('2012-01-05')) => true                                                                                                                                                                                                                                                                        
+Math:
 
+    week - 3 => 2011-12-12
+    week + 3 => 2012-01-24
 
+Start & End Dates:
 
+    week.start_date => 2012-01-02
+    week.end_date => 2012-01-08
+
+Range:
+
+    week.date_range => Range(2012-01-02..2012-01-08)
+
+Collection:
+
+    date = Date.parse('2012-01-02')
+    week.include?(date) => true
+    week.include?(date+7) => false

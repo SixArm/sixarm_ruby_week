@@ -185,16 +185,26 @@ class Week
   end
 
 
-
   # Return the end date of this week.
   # This is the same as week.date + 6 days
   #
   # @example
   #   week = Week.parse('2012-01-02')
-  #   week.end_date.to_s => '2012-01-09'
+  #   week.end_date.to_s => '2012-01-08'
 
   def end_date
     @date + 6
+  end
+
+
+  # Return the range start_date..end_date
+  #
+  # @example
+  #   week = Week.parse('2012-01-02')
+  #   week.date_range => Range(2012-01-02..2012-01-08)
+  
+  def date_range
+    start_date..end_date
   end
 
 
@@ -202,10 +212,10 @@ class Week
   #
   # @example
   #   week = Week.parse('2012-01-02')
-  #   week.includes?(Date.parse('2012-01-05')) => true
-  #   week.includes?(Date.parse('2012-01-10')) => false
+  #   week.include?(Date.parse('2012-01-05')) => true
+  #   week.include?(Date.parse('2012-01-10')) => false
 
-  def includes?(date)
+  def include?(date)
     (start_date..end_date).include?(date)
   end
 

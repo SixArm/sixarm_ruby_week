@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
 
   s.name              = "sixarm_ruby_week"
   s.summary           = "SixArm.com » Ruby » Week model based on Ruby Date"
-  s.version           = "1.1.0"
+  s.version           = "1.1.4"
   s.author            = "SixArm"
   s.email             = "sixarm@sixarm.com"
   s.homepage          = "http://sixarm.com/"

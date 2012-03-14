@@ -1,15 +1,37 @@
-= SixArm.com » Ruby » Week model based on Ruby Date
+# SixArm.com » Ruby » <br> Week model based on Ruby Date
 
-Author:: Joel Parker Henderson, joel@joelparkerhenderson.com
-Copyright:: Copyright (c) 2006-2012 Joel Parker Henderson
-License:: See LICENSE.txt file
+* Docs: <http://sixarm.com/sixarm_ruby_week/doc>
+* Repo: <http://github.com/sixarm/sixarm_ruby_week>
+* Email: Joel Parker Henderson, <joel@sixarm.com>
+
+
+## Introduction
 
 This gem models a week, based on the built-in Ruby Date class.
 
-== Examples
+For docs go to <http://sixarm.com/sixarm_ruby_week/doc>
+
+Want to help? We're happy to get pull requests.
 
 
-Initialize:
+## Quickstart
+
+Install:
+
+    gem install sixarm_ruby_week
+
+Bundler:
+
+    gem "sixarm_ruby_week", "=1.1.4"
+
+Require:
+
+    require "sixarm_ruby_week"
+
+
+## Examples
+
+Create:
     
     date = Date.parse('2012-01-02')
     week = Week.new(date)
@@ -44,3 +66,4 @@ Collection:
     date = Date.parse('2012-01-02')
     week.include?(date) => true
     week.include?(date+7) => false
+

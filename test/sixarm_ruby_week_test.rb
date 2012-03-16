@@ -17,9 +17,9 @@ describe Week do
   describe ".initialize" do
 
     it "must initialize the year, week, and day" do
-      assert_equal(WEEK.date.cwyear, 2012)
-      assert_equal(WEEK.date.cweek, 1)
-      assert_equal(WEEK.date.cwday, 1)
+      WEEK.date.cwyear.must_equal 2012
+      WEEK.date.cweek.must_equal 1
+      WEEK.date.cwday.must_equal 1
     end
 
   end
@@ -27,11 +27,11 @@ describe Week do
   describe "#date" do
 
     it "=> Date" do
-      assert_kind_of(Date, WEEK.date)
+      WEEK.date.must_be_kind_of Date
     end
 
     it "=> the date that initiazed the week" do 
-      assert_equal(DATE, WEEK.date)
+      WEEK.date.must_equal DATE
     end
 
   end
@@ -39,11 +39,11 @@ describe Week do
   describe "#to_s" do 
 
     it "=> String" do
-      assert_kind_of(String, WEEK.to_s)
+      WEEK.to_s.must_be_kind_of String
     end
 
     it "=> the week's date formatted as YYYY-MM-DD" do
-      assert_equal(TEXT, WEEK.to_s)
+      WEEK.to_s.must_equal TEXT
     end
 
   end
@@ -51,11 +51,11 @@ describe Week do
   describe ".now" do
 
     it "=> Week" do
-      assert_kind_of(Week, Week.now)
+      Week.now.must_be_kind_of Week
     end
 
     it "=> a week based on today's date" do
-      assert_equal(Date.today, Week.now.date)
+      Week.now.date.must_equal Date.today
     end
 
   end
@@ -63,12 +63,12 @@ describe Week do
   describe ".parse" do
 
     it "=> Week" do
-      assert_kind_of(Week, Week.parse(TEXT))
+      Week.parse(TEXT).must_be_kind_of Week
     end
 
     it "=> a week based on the date text" do
       s = '2012-01-02'
-      assert_equal(Date.parse(s), Week.parse(s).date)
+      Week.parse(s).date.must_equal Date.parse(s)
     end
 
   end
@@ -76,11 +76,11 @@ describe Week do
   describe "#hash" do
 
     it "=> Fixnum" do
-      assert_kind_of(Fixnum, WEEK.hash)
+      WEEK.hash.must_be_kind_of Fixnum
     end
 
     it "=> the week's date's hash" do
-      assert_equal(WEEK.date.hash, WEEK.hash)
+      WEEK.hash.must_equal WEEK.date.hash
     end
 
   end
@@ -112,15 +112,15 @@ describe Week do
   describe "<=>" do
 
     it "x<y => -1" do
-      assert_equal(-1, WEEK <=> WEEK_NEXT)
+      (WEEK <=> WEEK_NEXT).must_equal -1
     end
 
     it "x=y => 0" do
-      assert_equal( 0, WEEK <=> WEEK)
+      (WEEK <=> WEEK).must_equal 0
     end
 
     it "x>y => 1" do 
-      assert_equal( 1, WEEK <=> WEEK_PREV)
+      (WEEK <=> WEEK_PREV).must_equal 1
     end
 
   end
@@ -194,36 +194,34 @@ describe Week do
     describe "with Numeric type" do
 
       it "=> Week" do
-        assert_kind_of(Week, WEEK + 0)
+        (WEEK + 0).must_be_kind_of Week
       end
 
       it "+ 0 => this week" do
-        assert_equal(WEEK, WEEK + 0)
+        (WEEK + 0).must_equal WEEK
       end
 
       it "+ 1 => next week" do
-        assert_equal(WEEK_NEXT, WEEK + 1)
+        (WEEK + 1).must_equal WEEK_NEXT
       end
 
       it "+ (-1) => previous week" do
-        assert_equal(WEEK_PREV, WEEK + (-1))
+        (WEEK + (-1)).must_equal WEEK_PREV
       end
 
       it "+ any other number => different week" do
         w = WEEK + 2
-        refute_equal(WEEK_PREV, w)
-        refute_equal(WEEK, w)
-        refute_equal(WEEK_NEXT, w)
+        w.wont_equal WEEK_PREV
+        w.wont_equal WEEK
+        w.wont_equal WEEK_NEXT
       end
 
     end
 
     describe "with bad type" do
 
-      it "raises TypeError" do
-        assert_raises TypeError do
-          WEEK + "foo"
-        end
+      it "TypeError" do
+        proc { WEEK + "foo" }.must_raise TypeError
       end
       
     end
@@ -235,26 +233,26 @@ describe Week do
     describe "with Numeric type" do
 
       it "=> Week" do
-        assert_kind_of(Week, WEEK - 0)
+        (WEEK - 0).must_be_kind_of Week
       end
 
       it "- 0 => this week" do
-        assert_equal(WEEK, WEEK - 0)
+        (WEEK - 0).must_equal WEEK
       end
 
       it "- 1 => previous week" do
-        assert_equal(WEEK_PREV, WEEK - 1)
+        (WEEK - 1).must_equal WEEK_PREV
       end
 
       it "- (-1) => next week" do
-        assert_equal(WEEK_NEXT, WEEK - (-1))
+        (WEEK - (-1)).must_equal WEEK_NEXT
       end
 
       it "- any other number => different week" do
         w = WEEK - 2
-        refute_equal(WEEK_PREV, w)
-        refute_equal(WEEK, w)
-        refute_equal(WEEK_NEXT, w)
+        w.wont_equal WEEK_PREV
+        w.wont_equal WEEK
+        w.wont_equal WEEK_NEXT
       end
 
     end
@@ -262,29 +260,27 @@ describe Week do
     describe "with Week type" do
       
       it "=> Integer" do
-        assert_kind_of(Integer, WEEK - WEEK)
+        (WEEK - WEEK).must_be_kind_of Integer
       end
 
       it "this week - previous week => 1" do
-        assert_equal(1, WEEK - WEEK_PREV)
+        (WEEK - WEEK_PREV).must_equal 1 
       end
 
       it "this week - this week => 0" do
-        assert_equal(0, WEEK - WEEK)
+        (WEEK - WEEK).must_equal 0
       end
 
       it "this week - next week => -1" do
-        assert_equal(-1, WEEK - WEEK_NEXT)
+        (WEEK - WEEK_NEXT).must_equal -1
       end
       
     end
 
     describe "with bad type" do
 
-      it "raises TypeError" do
-        assert_raises TypeError do
-          WEEK - "foo"
-        end
+      it "TypeError" do
+        proc { WEEK - "foo" }.must_raise TypeError 
       end
 
     end
@@ -294,11 +290,11 @@ describe Week do
   describe "#previous" do
 
     it "=> Week" do
-      assert_kind_of(Week, WEEK.previous)
+      WEEK.previous.must_be_kind_of Week
     end
 
     it "=> a week seven days earlier" do
-      assert_equal(Week.new(DATE-7), Week.new(DATE).previous)
+      Week.new(DATE).previous.must_equal Week.new(DATE-7)
     end
 
   end
@@ -306,11 +302,11 @@ describe Week do
   describe "#next" do
 
     it "=> Week" do
-      assert_kind_of(Week, WEEK.next)
+      (WEEK.next).must_be_kind_of Week
     end
 
     it "=> a week seven days later" do
-      assert_equal(Week.new(DATE+7), Week.new(DATE).next)
+      Week.new(DATE).next.must_equal Week.new(DATE+7)
     end
 
   end
@@ -318,11 +314,11 @@ describe Week do
   describe "#start_date" do
 
     it "=> Date" do
-      assert_kind_of(Date, WEEK.start_date)
+      WEEK.start_date.must_be_kind_of Date
     end
 
     it "=> the initialzation date" do
-      assert_equal(DATE, WEEK.start_date)
+      WEEK.start_date.must_equal DATE
     end
     
   end
@@ -330,11 +326,11 @@ describe Week do
   describe "#end_date" do
 
     it "=> Date" do
-      assert_kind_of(Date, WEEK.end_date)
+      WEEK.end_date.must_be_kind_of Date
     end
 
     it "=> six days after the initialization date" do
-      assert_equal(DATE + 6, WEEK.end_date)
+      WEEK.end_date.must_equal DATE + 6
     end
 
   end
@@ -342,15 +338,15 @@ describe Week do
   describe "#date_range" do
 
     it "=> Range" do
-      assert_kind_of(Range, WEEK.date_range)
+      WEEK.date_range.must_be_kind_of Range
     end
 
     it "=> Range first is the start date" do
-      assert_equal(WEEK.start_date, WEEK.date_range.first)
+      WEEK.date_range.first.must_equal WEEK.start_date
     end
 
     it "=> Range last is the end date" do
-      assert_equal(WEEK.end_date, WEEK.date_range.last)
+      WEEK.date_range.last.must_equal WEEK.end_date
     end
 
   end
@@ -358,23 +354,23 @@ describe Week do
   describe "#include?" do
 
     it "all days in this week => true" do
-      assert_includes(WEEK, DATE+0)
-      assert_includes(WEEK, DATE+1)
-      assert_includes(WEEK, DATE+2)
-      assert_includes(WEEK, DATE+3)
-      assert_includes(WEEK, DATE+4)
-      assert_includes(WEEK, DATE+5)
-      assert_includes(WEEK, DATE+6)
+      WEEK.must_include DATE+0
+      WEEK.must_include DATE+1
+      WEEK.must_include DATE+2
+      WEEK.must_include DATE+3
+      WEEK.must_include DATE+4
+      WEEK.must_include DATE+5
+      WEEK.must_include DATE+6
     end
 
     it "any day before this week => false" do
-      refute_includes(WEEK, DATE-1)
-      refute_includes(WEEK, DATE-999)
+      WEEK.wont_include DATE-1
+      WEEK.wont_include DATE-999
     end
 
     it "any day after this week => false" do
-      refute_includes(WEEK, DATE+7)
-      refute_includes(WEEK, DATE+999)
+      WEEK.wont_include DATE+7
+      WEEK.wont_include DATE+999
     end
 
   end

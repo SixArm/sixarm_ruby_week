@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'test/unit'
 require 'minitest/autorun'
 require 'simplecov'
 SimpleCov.start

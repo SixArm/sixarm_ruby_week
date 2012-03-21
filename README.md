@@ -14,7 +14,7 @@ For docs go to <http://sixarm.com/sixarm_ruby_week/doc>
 Want to help? We're happy to get pull requests.
 
 
-## Quickstart
+## Install quickstart
 
 Install:
 
@@ -22,14 +22,14 @@ Install:
 
 Bundler:
 
-    gem "sixarm_ruby_week", "=1.1.6"
+    gem "sixarm_ruby_week", "~>1.1.6"
 
 Require:
 
     require "sixarm_ruby_week"
 
 
-## High Security (Optional)
+## Install with security (optional)
 
 To enable high security	for all	our gems:
 

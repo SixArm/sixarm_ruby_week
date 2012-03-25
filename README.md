@@ -1,6 +1,7 @@
 # SixArm.com » Ruby » <br> Week model based on Ruby Date
 
-* Docs: <http://sixarm.com/sixarm_ruby_week/doc>
+* Doc: <http://sixarm.com/sixarm_ruby_week/doc>
+* Gem: <http://rubygems.org/gems/sixarm_ruby_week>
 * Repo: <http://github.com/sixarm/sixarm_ruby_week>
 * Email: Joel Parker Henderson, <joel@sixarm.com>
 

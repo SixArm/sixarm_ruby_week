@@ -1,4 +1,4 @@
-# SixArm.com » Ruby » <br> Week model based on Ruby Date
+# Ruby » <br> Week model based on Ruby Date
 
 * Doc: <http://sixarm.com/sixarm_ruby_week/doc>
 * Gem: <http://rubygems.org/gems/sixarm_ruby_week>

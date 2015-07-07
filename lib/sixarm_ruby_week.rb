@@ -3,7 +3,7 @@
 Please see README
 =end
 
-require 'date'
+require "date"
 
 
 class Week

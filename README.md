@@ -1,4 +1,7 @@
-# Ruby » <br> Week model based on Ruby Date
+# SixArm.com » Ruby » <br> Week model based on Ruby Date
+
+[![Code Climate](https://codeclimate.com/github/SixArm/sixarm_ruby_week.png)](https://codeclimate.com/github/SixArm/sixarm_ruby_week)
+[![Build Status](https://travis-ci.org/SixArm/sixarm_ruby_week.png)](https://travis-ci.org/SixArm/sixarm_ruby_week)
 
 * Doc: <http://sixarm.com/sixarm_ruby_week/doc>
 * Gem: <http://rubygems.org/gems/sixarm_ruby_week>
@@ -23,7 +26,7 @@ Install:
 
 Bundler:
 
-    gem "sixarm_ruby_week", "~>1.1.6"
+    gem "sixarm_ruby_week", ">=1.1.7", "<2"
 
 Require:
 
@@ -46,7 +49,7 @@ To install with high security:
 ## Examples
 
 Create:
-    
+
     date = Date.parse('2012-01-02')
     week = Week.new(date)
     week.to_s => '2012-01-02'

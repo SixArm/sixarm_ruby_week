@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage       = "http://sixarm.com/"
   s.licenses       = ["BSD", "GPL", "MIT", "PAL", "Various"]
 
-  s.signing_key    = "/opt/keys/sixarm/sixarm-rsa-4096-x509-20150314-private.pem"
+  s.signing_key    =  "/opt/keys/sixarm/sixarm-rsa-4096-x509-20150314-private.pem"
   s.cert_chain     = ["/opt/keys/sixarm/sixarm-rsa-4096-x509-20150314-public.pem"]
 
   s.platform       = Gem::Platform::RUBY
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     "lib/sixarm_ruby_week.rb",
   ]
 
-  s.test_files =[
+  s.test_files = [
     "test/sixarm_ruby_week_test.rb",
   ]
 

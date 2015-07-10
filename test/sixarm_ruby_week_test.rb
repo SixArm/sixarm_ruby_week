@@ -2,6 +2,7 @@
 require "minitest/autorun"
 require "simplecov"
 SimpleCov.start
+
 require "sixarm_ruby_week"
 
 describe Week do
@@ -30,13 +31,13 @@ describe Week do
       WEEK.date.must_be_kind_of Date
     end
 
-    it "=> the date that initiazed the week" do 
+    it "=> the date that initialized the week" do
       WEEK.date.must_equal DATE
     end
 
   end
 
-  describe "#to_s" do 
+  describe "#to_s" do
 
     it "=> String" do
       WEEK.to_s.must_be_kind_of String
@@ -86,11 +87,11 @@ describe Week do
   end
 
   describe "#eql?" do
-    
+
     it "weeks created from the same date => true" do
       assert(WEEK.eql? Week.new(DATE))
     end
-    
+
     it "weeks created from different dates => false" do
       refute(WEEK.eql? Week.new(DATE+1))
     end
@@ -119,7 +120,7 @@ describe Week do
       (WEEK <=> WEEK).must_equal 0
     end
 
-    it "x>y => 1" do 
+    it "x>y => 1" do
       (WEEK <=> WEEK_PREV).must_equal 1
     end
 
@@ -158,7 +159,7 @@ describe Week do
   end
 
   describe ">" do
-      
+
     it "x<y => false" do
       refute(WEEK > WEEK_NEXT)
     end
@@ -188,7 +189,7 @@ describe Week do
     end
 
   end
-  
+
   describe "+" do
 
     describe "with Numeric type" do
@@ -223,11 +224,11 @@ describe Week do
       it "TypeError" do
         proc { WEEK + "foo" }.must_raise TypeError
       end
-      
+
     end
 
   end
-  
+
   describe "-" do
 
     describe "with Numeric type" do
@@ -258,13 +259,13 @@ describe Week do
     end
 
     describe "with Week type" do
-      
+
       it "=> Integer" do
         (WEEK - WEEK).must_be_kind_of Integer
       end
 
       it "this week - previous week => 1" do
-        (WEEK - WEEK_PREV).must_equal 1 
+        (WEEK - WEEK_PREV).must_equal 1
       end
 
       it "this week - this week => 0" do
@@ -274,13 +275,13 @@ describe Week do
       it "this week - next week => -1" do
         (WEEK - WEEK_NEXT).must_equal -1
       end
-      
+
     end
 
     describe "with bad type" do
 
       it "TypeError" do
-        proc { WEEK - "foo" }.must_raise TypeError 
+        proc { WEEK - "foo" }.must_raise TypeError
       end
 
     end
@@ -320,7 +321,7 @@ describe Week do
     it "=> the initialzation date" do
       WEEK.start_date.must_equal DATE
     end
-    
+
   end
 
   describe "#end_date" do

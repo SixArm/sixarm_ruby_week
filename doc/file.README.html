@@ -6,18 +6,20 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.7.5
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!file.README.html";
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,172 +28,141 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: README</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
-    <div id="content"><div id='filecontents'><h1>SixArm.com » Ruby » <br> Week model based on Ruby Date</h1>
 
-<ul>
-<li>Docs: <a href="http://sixarm.com/sixarm_ruby_week/doc">http://sixarm.com/sixarm_ruby_week/doc</a></li>
-<li>Repo: <a href="http://github.com/sixarm/sixarm_ruby_week">http://github.com/sixarm/sixarm_ruby_week</a></li>
-<li>Email: Joel Parker Henderson, <a href="mailto:joel@sixarm.com">joel@sixarm.com</a></li>
-</ul>
+    <div id="content"><div id='filecontents'>
+<h1 id="label-SixArm.com+-C2-BB+Ruby+-C2-BB++Week+model+based+on+Ruby+Date">SixArm.com » Ruby » <br> Week model based on Ruby Date</h1>
 
-<h2>Introduction</h2>
+<p><a href="https://codeclimate.com/github/SixArm/sixarm_ruby_week"><img
+src="https://codeclimate.com/github/SixArm/sixarm_ruby_week.png"></a> <a
+href="https://travis-ci.org/SixArm/sixarm_ruby_week"><img
+src="https://travis-ci.org/SixArm/sixarm_ruby_week.png"></a></p>
+<ul><li>
+<p>Doc: <a
+href="http://sixarm.com/sixarm_ruby_week/doc">sixarm.com/sixarm_ruby_week/doc</a></p>
+</li><li>
+<p>Gem: <a
+href="http://rubygems.org/gems/sixarm_ruby_week">rubygems.org/gems/sixarm_ruby_week</a></p>
+</li><li>
+<p>Repo: <a
+href="http://github.com/sixarm/sixarm_ruby_week">github.com/sixarm/sixarm_ruby_week</a></p>
+</li><li>
+<p>Email: Joel Parker Henderson, <a
+href="mailto:joel@sixarm.com">joel@sixarm.com</a></p>
+</li></ul>
+
+<h2 id="label-Introduction">Introduction</h2>
 
 <p>This gem models a week, based on the built-in Ruby Date class.</p>
 
-<p>For docs go to <a href="http://sixarm.com/sixarm_ruby_week/doc">http://sixarm.com/sixarm_ruby_week/doc</a></p>
+<p>For docs go to <a
+href="http://sixarm.com/sixarm_ruby_week/doc">sixarm.com/sixarm_ruby_week/doc</a></p>
 
 <p>Want to help? We&#39;re happy to get pull requests.</p>
 
-<h2>Quickstart</h2>
+<h2 id="label-Install+quickstart">Install quickstart</h2>
 
 <p>Install:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_sixarm_ruby_week'>sixarm_ruby_week</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_sixarm_ruby_week'>sixarm_ruby_week</span>
 </code></pre>
 
 <p>Bundler:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=1.1.6</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;=1.1.7</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;2</span><span class='tstring_end'>&quot;</span></span>
 </code></pre>
 
 <p>Require:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span>
 </code></pre>
 
-<h2>High Security (Optional)</h2>
+<h2 id="label-Install+with+security+-28optional-29">Install with security (optional)</h2>
 
 <p>To enable high security for all our gems:</p>
 
-<pre class="code ruby"><code>wget http://sixarm.com/sixarm.pem
+<pre class="code ruby"><code class="ruby">wget http://sixarm.com/sixarm.pem
 gem cert --add sixarm.pem
-gem sources --add http://sixarm.com
-</code></pre>
+gem sources --add http://sixarm.com</code></pre>
 
 <p>To install with high security:</p>
 
-<pre class="code ruby"><code>gem install sixarm_ruby_week --test --trust-policy HighSecurity
-</code></pre>
+<pre class="code ruby"><code class="ruby">gem install sixarm_ruby_week --trust-policy HighSecurity</code></pre>
 
-<h2>Examples</h2>
+<h2 id="label-Examples">Examples</h2>
 
 <p>Create:</p>
 
-<pre class="code ruby"><code>date = Date.parse('2012-01-02')
+<pre class="code ruby"><code class="ruby">date = Date.parse(&#39;2012-01-02&#39;)
 week = Week.new(date)
-week.to_s =&gt; '2012-01-02'
-</code></pre>
+week.to_s =&gt; &#39;2012-01-02&#39;</code></pre>
 
 <p>Parse:</p>
 
-<pre class="code ruby"><code>week = Week.parse('2012-01-02')
-week =&gt; 2012-01-02
-</code></pre>
+<pre class="code ruby"><code class="ruby">week = Week.parse(&#39;2012-01-02&#39;)
+week =&gt; 2012-01-02</code></pre>
 
 <p>Enumerable:</p>
 
-<pre class="code ruby"><code>week.previous =&gt; 2011-12-26
-week.next =&gt; 2012-01-16
-</code></pre>
+<pre class="code ruby"><code class="ruby">week.previous =&gt; 2011-12-26
+week.next =&gt; 2012-01-16</code></pre>
 
 <p>Math:</p>
 
-<pre class="code ruby"><code>week - 3 =&gt; 2011-12-12
-week + 3 =&gt; 2012-01-24
-</code></pre>
+<pre class="code ruby"><code class="ruby">week - 3 =&gt; 2011-12-12
+week + 3 =&gt; 2012-01-24</code></pre>
 
 <p>Start &amp; End Dates:</p>
 
-<pre class="code ruby"><code>week.start_date =&gt; 2012-01-02
-week.end_date =&gt; 2012-01-08
-</code></pre>
+<pre class="code ruby"><code class="ruby">week.start_date =&gt; 2012-01-02
+week.end_date =&gt; 2012-01-08</code></pre>
 
 <p>Range:</p>
 
-<pre class="code ruby"><code>week.date_range =&gt; Range(2012-01-02..2012-01-08)
-</code></pre>
+<pre class="code ruby"><code class="ruby">week.date_range =&gt; Range(2012-01-02..2012-01-08)</code></pre>
 
 <p>Collection:</p>
 
-<pre class="code ruby"><code>date = Date.parse('2012-01-02')
+<pre class="code ruby"><code class="ruby">date = Date.parse(&#39;2012-01-02&#39;)
 week.include?(date) =&gt; true
-week.include?(date+7) =&gt; false
-</code></pre>
-
-<h2>Changes</h2>
-
-<ul>
-<li>2012-03-16 1.1.6 Upgrade for Ruby 1.9.3, minitest/spec, and improved docs.</li>
-<li>2012-03-12 1.1.4 Improve tests from test/unit style toward minitest/spec style</li>
-<li>2012-03-11 1.1.2 Add #date<em>range method to return start</em>date..end_date</li>
-<li>2012-03-10 1.1.1 Rename #includes? to #include? because it matches Ruby&#39;s Array include? method </li>
-<li>2012-02-24 1.1.0 Add methods .now, #includes?, #previous, #next, #start<em>date, #end</em>date, and improve examples</li>
-<li>2012-02-23 1.0.0 Updates for gem publishing </li>
-</ul>
-
-<h2>License</h2>
-
-<p>You may choose any of these open source licenses:</p>
-
-<ul>
-<li>Apache License</li>
-<li>BSD License</li>
-<li>CreativeCommons License, Non-commercial Share Alike</li>
-<li>GNU General Public License Version 2 (GPL 2)</li>
-<li>GNU Lesser General Public License (LGPL)</li>
-<li>MIT License</li>
-<li>Perl Artistic License</li>
-<li>Ruby License</li>
-</ul>
-
-<p>The software is provided &quot;as is&quot;, without warranty of any kind, 
-express or implied, including but not limited to the warranties of 
-merchantability, fitness for a particular purpose and noninfringement. </p>
-
-<p>In no event shall the authors or copyright holders be liable for any 
-claim, damages or other liability, whether in an action of contract, 
-tort or otherwise, arising from, out of or in connection with the 
-software or the use or other dealings in the software.</p>
-
-<p>This license is for the included software that is created by SixArm;
-some of the included software may have its own licenses, copyrights, 
-authors, etc. and these do take precedence over the SixArm license.</p>
-
-<p>Copyright (c) 2013 Joel Parker Henderson</p>
+week.include?(date+7) =&gt; false</code></pre>
 </div></div>
-    
+
     <div id="footer">
-  Generated on Fri Mar 16 14:31:33 2012 by 
+  Generated on Fri Jul 10 00:02:37 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

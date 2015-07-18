@@ -312,41 +312,53 @@ class Week
   #
   ###
  
-  # Return the start date of this week.
+  # Return the first date of this week.
   #
   # Example:
   #
-  #   week = Week.new(date)
-  #   week.start_date #=> date
+  #     week = Week.new(date)
+  #     week.first_date #=> date
   #
-  # Return:
+  # Aliases:
+  #
+  #     week.begin_date
+  #     week.start_date
+  #
+  ## Return:
   #
   #   * [Date] week.date
   #
-  def start_date
+  def first_date
     @date
   end
 
-  alias :begin_date :start_date
+  alias :begin_date :first_date
+  alias :start_date :first_date  
 
-  # Return the end date of this week.
+  # Return the last date of this week.
   #
   # Return 
   #
   # Example:
   #
-  #   week = Week.new(date)
-  #   week.end_date #=> date + 6
+  #     week = Week.new(date)
+  #     week.last_date #=> date + 6
+  #
+  # Aliases:
+  #
+  #     week.end_date
+  #     week.stop_date
   #
   # Return:
   #
   #   * [Date] week.date + 6
   #
-  def stop_date
+  def last_date
     @date + 6
   end
 
-  alias :end_date :stop_date
+  alias :end_date :last_date
+  alias :stop_date :last_date
   
   # Return the date range of the week.
   #
@@ -354,8 +366,8 @@ class Week
   #
   # Example:
   #
-  #   week = Week.now
-  #   week.date_range => Range(2012-01-02..2012-01-08)
+  #     week = Week.now
+  #     week.date_range => Range(2012-01-02..2012-01-08)
   #
   # Return:
   #

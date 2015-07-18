@@ -309,53 +309,62 @@ describe Week do
 
   end
 
-  describe "#start_date" do
+  describe "#first_date" do
 
     it "=> Date" do
-      WEEK.start_date.must_be_kind_of Date
+      WEEK.first_date.must_be_kind_of Date
     end
 
     it "=> the initialzation date" do
-      WEEK.start_date.must_equal DATE
+      WEEK.first_date.must_equal DATE
+    end
+
+    end
+    
+  describe "#begin_date" do
+
+    it "alias" do
+      WEEK.method(:begin_date) == WEEK.method(:first_date)
     end
 
   end
 
-  describe "#begin_date" do
+  describe "#start_date" do
 
-    it "=> Date" do
-      WEEK.begin_date.must_be_kind_of Date
-    end
-
-    it "=> the initialzation date" do
-      WEEK.begin_date.must_equal DATE
+    it "alias" do
+      WEEK.method(:start_date) == WEEK.method(:first_date)
     end
 
   end  
-
-  describe "#stop_date" do
+  
+  describe "#last_date" do
 
     it "=> Date" do
-      WEEK.stop_date.must_be_kind_of Date
+      WEEK.last_date.must_be_kind_of Date
     end
 
     it "=> six days after the initialization date" do
-      WEEK.stop_date.must_equal DATE + 6
+      WEEK.last_date.must_equal DATE + 6
     end
     
   end
     
   describe "#end_date" do
 
-    it "=> Date" do
-      WEEK.end_date.must_be_kind_of Date
-    end
-
-    it "=> six days after the initialization date" do
-      WEEK.end_date.must_equal DATE + 6
+    it "alias" do
+      WEEK.method(:end_date) == WEEK.method(:last_date)
     end
 
   end
+
+  describe "#stop_date" do
+
+    it "alias" do
+      WEEK.method(:stop_date) == WEEK.method(:last_date)
+    end
+
+  end
+  
 
   describe "#date_range" do
 

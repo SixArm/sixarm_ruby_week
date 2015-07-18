@@ -33,17 +33,17 @@ Want to help? We're happy to get pull requests.
 
 To install using a Gemfile, add this:
 
-    gem "sixarm_ruby_week", ">= 1.1.8", "< 2"
+    gem "sixarm_ruby_week", ">= 1.2.0", "< 2"
 
 To install using the command line, run this:
 
-    gem install sixarm_ruby_week -v ">= 1.1.8, < 2"
+    gem install sixarm_ruby_week -v ">= 1.2.0, < 2"
 
 To install using the command line with high security, run this:
 
     wget http://sixarm.com/sixarm.pem
     gem cert --add sixarm.pem && gem sources --add http://sixarm.com
-    gem install sixarm_ruby_week -v ">= 1.1.8, < 2" --trust-policy HighSecurity
+    gem install sixarm_ruby_week -v ">= 1.2.0, < 2" --trust-policy HighSecurity
 
 To require the gem in your code:
 
@@ -56,37 +56,40 @@ To require the gem in your code:
 
 Create:
 
-    date = Date.parse('2012-01-02')
-    week = Week.new(date)
-    week.to_s => '2012-01-02'
+    week = Week.now
 
-Parse:
+    week = Week.new(Date.today)
 
-    week = Week.parse('2012-01-02')
-    week => 2012-01-02
+    week = Week.parse("2015-12-31")
 
 Enumerable:
 
-    week.previous => 2011-12-26
-    week.next => 2012-01-16
+    week.previous => seven days earlier
+
+    week.next => seven days later
 
 Math:
 
-    week - 3 => 2011-12-12
-    week + 3 => 2012-01-24
+    week - 2 => two weeks earlier
 
-Start & End Dates:
+    week + 2 => two weeks later
 
-    week.start_date => 2012-01-02
-    week.end_date => 2012-01-08
+First/Last, Start/Stop, Begin/End:
+
+    week.first_date => the first date of the week
+    week.last_date => the last date of the week
+
+    week.start_date => same as first_date
+    week.stop_date => same as last_date
+
+    week.begin_date => same as first_date
+    week.end_date => same as last_date
 
 Range:
 
-    week.date_range => Range(2012-01-02..2012-01-08)
+    week.date_range => week.first_date..week.last_date
 
 Collection:
 
-    date = Date.parse('2012-01-02')
     week.include?(date) => true
-    week.include?(date+7) => false
 

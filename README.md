@@ -74,16 +74,16 @@ Math:
 
     week + 2 => two weeks later
 
-First/Last, Start/Stop, Begin/End:
+First/Last, Begin/End, Start/Stop:
 
     week.first_date => the first date of the week
     week.last_date => the last date of the week
 
-    week.start_date => same as first_date
-    week.stop_date => same as last_date
+    week.begin_date => first_date
+    week.end_date => last_date
 
-    week.begin_date => same as first_date
-    week.end_date => same as last_date
+    week.start_date => first_date
+    week.stop_date => last_date
 
 Range:
 

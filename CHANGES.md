@@ -1,5 +1,6 @@
 # Changes
 
+* 2015-07-18 1.1.8 Update quality assurance
 * 2015-07-07 1.1.7 Update gemspec to use file manifest
 * 2012-03-16 1.1.6 Upgrade for Ruby 1.9.3, minitest/spec, and improved docs
 * 2012-03-12 1.1.4 Improve tests from test/unit style toward minitest/spec style

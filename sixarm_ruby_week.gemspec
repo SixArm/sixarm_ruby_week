@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
 
   s.name           = "sixarm_ruby_week"
   s.summary        = "SixArm.com » Ruby » Week"
-  s.description    = "Week model, based on Ruby Date"
-  s.version        = "1.1.7"
+  s.description    = "Week model based on Ruby Date"
+  s.version        = "1.1.8"
 
   s.author         = "SixArm"
   s.email          = "sixarm@sixarm.com"
@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
   ]
 
   s.test_files = [
-    "test/sixarm_ruby_week_test.rb",
+    "test/sixarm_ruby_week_test.rb",    
+    "test/sixarm_ruby_week_test/week_test.rb",
   ]
 
   s.add_development_dependency('minitest', '>= 5.7.0', '< 6')

@@ -105,18 +105,18 @@ href="http://sixarm.com/sixarm_ruby_week/doc">sixarm.com/sixarm_ruby_week/doc</a
 
 <p>To install using a Gemfile, add this:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;= 1.1.8</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; 2</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sixarm_ruby_week</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;= 1.2.0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt; 2</span><span class='tstring_end'>&quot;</span></span>
 </code></pre>
 
 <p>To install using the command line, run this:</p>
 
-<pre class="code ruby"><code class="ruby">gem install sixarm_ruby_week -v &quot;&gt;= 1.1.8, &lt; 2&quot;</code></pre>
+<pre class="code ruby"><code class="ruby">gem install sixarm_ruby_week -v &quot;&gt;= 1.2.0, &lt; 2&quot;</code></pre>
 
 <p>To install using the command line with high security, run this:</p>
 
 <pre class="code ruby"><code class="ruby">wget http://sixarm.com/sixarm.pem
 gem cert --add sixarm.pem &amp;&amp; gem sources --add http://sixarm.com
-gem install sixarm_ruby_week -v &quot;&gt;= 1.1.8, &lt; 2&quot; --trust-policy HighSecurity</code></pre>
+gem install sixarm_ruby_week -v &quot;&gt;= 1.2.0, &lt; 2&quot; --trust-policy HighSecurity</code></pre>
 
 <p>To require the gem in your code:</p>
 
@@ -127,43 +127,47 @@ gem install sixarm_ruby_week -v &quot;&gt;= 1.1.8, &lt; 2&quot; --trust-policy H
 
 <p>Create:</p>
 
-<pre class="code ruby"><code class="ruby">date = Date.parse(&#39;2012-01-02&#39;)
-week = Week.new(date)
-week.to_s =&gt; &#39;2012-01-02&#39;</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
 
-<p>Parse:</p>
+<span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='rparen'>)</span>
 
-<pre class="code ruby"><code class="ruby">week = Week.parse(&#39;2012-01-02&#39;)
-week =&gt; 2012-01-02</code></pre>
+<span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2015-12-31</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
 
 <p>Enumerable:</p>
 
-<pre class="code ruby"><code class="ruby">week.previous =&gt; 2011-12-26
-week.next =&gt; 2012-01-16</code></pre>
+<pre class="code ruby"><code class="ruby">week.previous =&gt; seven days earlier
+
+week.next =&gt; seven days later</code></pre>
 
 <p>Math:</p>
 
-<pre class="code ruby"><code class="ruby">week - 3 =&gt; 2011-12-12
-week + 3 =&gt; 2012-01-24</code></pre>
+<pre class="code ruby"><code class="ruby">week - 2 =&gt; two weeks earlier
 
-<p>Start &amp; End Dates:</p>
+week + 2 =&gt; two weeks later</code></pre>
 
-<pre class="code ruby"><code class="ruby">week.start_date =&gt; 2012-01-02
-week.end_date =&gt; 2012-01-08</code></pre>
+<p>First/Last, Start/Stop, Begin/End:</p>
+
+<pre class="code ruby"><code class="ruby">week.first_date =&gt; the first date of the week
+week.last_date =&gt; the last date of the week
+
+week.start_date =&gt; same as first_date
+week.stop_date =&gt; same as last_date
+
+week.begin_date =&gt; same as first_date
+week.end_date =&gt; same as last_date</code></pre>
 
 <p>Range:</p>
 
-<pre class="code ruby"><code class="ruby">week.date_range =&gt; Range(2012-01-02..2012-01-08)</code></pre>
+<pre class="code ruby"><code class="ruby">week.date_range =&gt; week.first_date..week.last_date</code></pre>
 
 <p>Collection:</p>
 
-<pre class="code ruby"><code class="ruby">date = Date.parse(&#39;2012-01-02&#39;)
-week.include?(date) =&gt; true
-week.include?(date+7) =&gt; false</code></pre>
+<pre class="code ruby"><code class="ruby">week.include?(date) =&gt; true</code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Sat Jul 18 15:36:41 2015 by
+  Generated on Sat Jul 18 16:14:08 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

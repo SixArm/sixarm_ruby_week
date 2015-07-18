@@ -426,6 +426,32 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#first_date-instance_method" title="#first_date (instance method)">- (Object) <strong>first_date</strong> </a>
+    
+
+    
+      (also: #begin_date, #start_date)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the first date of this week.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#hash-instance_method" title="#hash (instance method)">- (Object) <strong>hash</strong> </a>
     
 
@@ -500,6 +526,32 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#last_date-instance_method" title="#last_date (instance method)">- (Object) <strong>last_date</strong> </a>
+    
+
+    
+      (also: #end_date, #stop_date)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the last date of this week.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#next-instance_method" title="#next (instance method)">- (Object) <strong>next</strong> </a>
     
 
@@ -540,58 +592,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Return the previous week, i.e.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#start_date-instance_method" title="#start_date (instance method)">- (Object) <strong>start_date</strong> </a>
-    
-
-    
-      (also: #begin_date)
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the start date of this week.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#stop_date-instance_method" title="#stop_date (instance method)">- (Object) <strong>stop_date</strong> </a>
-    
-
-    
-      (also: #end_date)
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the end date of this week.</p>
 </div></span>
   
 </li>
@@ -1324,15 +1324,76 @@ week.date_range =&gt; Range(2012-01-02..2012-01-08)</code></pre>
       <pre class="lines">
 
 
-364
-365
-366</pre>
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 364</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_date_range'>date_range</span>
   <span class='id identifier rubyid_start_date'>start_date</span><span class='op'>..</span><span class='id identifier rubyid_stop_date'>stop_date</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="first_date-instance_method">
+  
+    - (<tt>Object</tt>) <strong>first_date</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='begin_date-instance_method'>begin_date</span>, <span id='start_date-instance_method'>start_date</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the first date of this week.</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_first_date'>first_date</span> <span class='comment'>#=&gt; date
+</span></code></pre>
+
+<p>Aliases:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_begin_date'>begin_date</span>
+<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_start_date'>start_date</span>
+</code></pre>
+
+<p>Return:</p>
+
+<pre class="code ruby"><code class="ruby">* [Date] week.date</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 331</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_first_date'>first_date</span>
+  <span class='ivar'>@date</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1445,15 +1506,78 @@ week.include?(date + 7) =&gt; false</code></pre>
       <pre class="lines">
 
 
-381
-382
-383</pre>
+393
+394
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 381</span>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 393</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_start_date'>start_date</span><span class='op'>..</span><span class='id identifier rubyid_end_date'>end_date</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="last_date-instance_method">
+  
+    - (<tt>Object</tt>) <strong>last_date</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='end_date-instance_method'>end_date</span>, <span id='stop_date-instance_method'>stop_date</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the last date of this week.</p>
+
+<p>Return</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_last_date'>last_date</span> <span class='comment'>#=&gt; date + 6
+</span></code></pre>
+
+<p>Aliases:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_end_date'>end_date</span>
+<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_stop_date'>stop_date</span>
+</code></pre>
+
+<p>Return:</p>
+
+<pre class="code ruby"><code class="ruby">* [Date] week.date + 6</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+356
+357
+358</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 356</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_last_date'>last_date</span>
+  <span class='ivar'>@date</span> <span class='op'>+</span> <span class='int'>6</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1563,118 +1687,6 @@ week.include?(date + 7) =&gt; false</code></pre>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="start_date-instance_method">
-  
-    - (<tt>Object</tt>) <strong>start_date</strong> 
-  
-
-  
-    <span class="aliases">Also known as:
-    <span class="names"><span id='begin_date-instance_method'>begin_date</span></span>
-    </span>
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the start date of this week.</p>
-
-<p>Example:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_start_date'>start_date</span> <span class='comment'>#=&gt; date
-</span></code></pre>
-
-<p>Return:</p>
-
-<pre class="code ruby"><code class="ruby">* [Date] week.date</code></pre>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-326
-327
-328</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 326</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_start_date'>start_date</span>
-  <span class='ivar'>@date</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="stop_date-instance_method">
-  
-    - (<tt>Object</tt>) <strong>stop_date</strong> 
-  
-
-  
-    <span class="aliases">Also known as:
-    <span class="names"><span id='end_date-instance_method'>end_date</span></span>
-    </span>
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the end date of this week.</p>
-
-<p>Return</p>
-
-<p>Example:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_week'>week</span> <span class='op'>=</span> <span class='const'>Week</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_week'>week</span><span class='period'>.</span><span class='id identifier rubyid_end_date'>end_date</span> <span class='comment'>#=&gt; date + 6
-</span></code></pre>
-
-<p>Return:</p>
-
-<pre class="code ruby"><code class="ruby">* [Date] week.date + 6</code></pre>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-345
-346
-347</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/sixarm_ruby_week/week.rb', line 345</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_stop_date'>stop_date</span>
-  <span class='ivar'>@date</span> <span class='op'>+</span> <span class='int'>6</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
     - (<tt>Object</tt>) <strong>to_s</strong> 
@@ -1731,7 +1743,7 @@ week.include?(date + 7) =&gt; false</code></pre>
 </div>
 
     <div id="footer">
-  Generated on Sat Jul 18 15:36:42 2015 by
+  Generated on Sat Jul 18 16:14:08 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -89,3 +89,4 @@ Collection:
     date = Date.parse('2012-01-02')
     week.include?(date) => true
     week.include?(date+7) => false
+

@@ -3,4 +3,4 @@
 Please see README
 =end
 
-require "sixarm_ruby_week/week"
+require_relative "sixarm_ruby_week/week"

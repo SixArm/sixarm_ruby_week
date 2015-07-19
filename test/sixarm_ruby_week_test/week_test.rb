@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require "sixarm_ruby_week_test"
-require "sixarm_ruby_week/week"
 
 describe Week do
 
